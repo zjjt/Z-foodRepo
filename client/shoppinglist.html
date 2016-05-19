@@ -1,0 +1,16 @@
+<template name="Listeachat">
+ <h1 class="page-title">Liste des ingrédients à acheter</h1>
+	<ul class="shopping-list">
+		{{#each listeachat}}
+			{{#each ingredients}}
+				{{#if nombre}}
+				<li>{{nom}} -<span class="amount"> {{nombre}}</span> </li>
+				{{/if}}
+				<li>{{nom}}  </li>
+
+			{{/each}}
+		{{else}}
+			<li>Veuillez ajouter des <a href="/recettes">plats</a> &agrave; votre menu.</li>
+		{{/each}}
+	</ul>
+</template>

@@ -1,0 +1,26 @@
+<template name="Recettes">
+	{{#if $.Session.get 'newrecette'}}
+		<div class="new-recipe-container {{recetteonoff}}">
+			<i class="fa fa-close"></i>
+			<h1 style="text-align:center;">Ajoutez une nouvelle recette ?</h1>
+			{{> quickForm collection="Recettes" id="insertRecipeForm" type="insert" class="new-recipe-form" buttonContent="Ajouter"}}
+		</div>
+	{{else}}
+		<button class="new-recipe">Nouvelle recette</button>
+	{{/if}}
+	<h2 style="text-align:center;">Vos recettes favories</h2>
+	<section class="recipes">
+		{{#if Template.subscriptionsReady}}
+				{{#each recette}}
+				{{> Recette}}
+				{{else}}
+					<P style="text-align:center">Veuillez ajouter une nouvelle recette</P>
+				{{/each}}
+
+
+
+			{{else}}
+			<marquee><p>Chargement</p></marquee>
+		{{/if}}
+	</section>
+</template>
